@@ -67,13 +67,14 @@ int cant_potasio<-10;
 			location<-{50,75,5};
 		}
 
+/* 
 	create biomass
 		{
 			location<-{50,100,4};
 			aa<-rectangle(100,50);
             liq<-rgb(120,60,0);
 		}
-
+*/
 	//importar imagenes 
 	
 	//image_file mature_corn_shape<-file("..images/mature_corn.png");
@@ -142,9 +143,7 @@ species planta skills: []
 	reflex mature when:cont>700 and cont<800
 	{
 		maizstep1<-file("../images/sem6.png");
-	location<-{50,68,5}; 
-		
-		
+		location<-{50,68,5}; 
 	}
 	reflex die when:cont>1000
 	{   
@@ -154,6 +153,7 @@ species planta skills: []
 	}
 	
 }
+
 //no funciona esto
 species ramas parent: planta
 { // float length <- 0.0;
@@ -176,6 +176,7 @@ species ramas parent: planta
 	
 }
 //esta es la tierra no la biomasa
+/* 
 species biomass
 {
 	geometry aa;
@@ -200,6 +201,8 @@ species biomass
               	
 	}
 }
+ */
+
 //particolas para la biomasa
 species Potasio skills:[moving] parent: biomass
 {
@@ -256,7 +259,7 @@ parameter "Temp min" var:tempmin<-10;
 parameter "Tipo BioMass" var:typebio<-"Tierra";
 parameter"Tipo Planta" var:tipoplant<-"Maiz";
 parameter "Dias"var:edad<-1;
-parameter "Potacio" var:cuenta;
+parameter "Potasio" var:cuenta;
 parameter "Magnesio" var:cant_magnesio;
 parameter "Calcio" var:cant_calcio;
 parameter "Luminocidad"var:luminosidad<-1;
@@ -269,7 +272,7 @@ parameter"Cantidad_Plantas"var:cant_plant<-1;
 	 display map type: opengl background:rgb(204, 255, 255){ 
 	
 	//species ramas;
-	species biomass aspect: default;
+	//species biomass aspect: default;
 	species Potasio ;
 	species Calcio aspect: default;
 	species Magnesio aspect: default;
