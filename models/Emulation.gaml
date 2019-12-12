@@ -101,11 +101,11 @@ global
 				        hum.nmeasure 		nHumidity,
 				        light.nmeasure 		nLight
 				from 		simplant.environment 	env
-				inner join 	simplant.sensor 		sen on env.idenvironment = sen.idenvironment
-				inner join 	(select idsensor, nTemperature  from simplant.temperature order by dMeasure desc limit 1) as temp on temp.idsensor = sen.idsensor
-				left join 	(select idsensor, nflow  from simplant.airflow order by dMeasure desc limit 1) as flow on flow.idsensor = sen.idsensor
-				left join 	(select idsensor, nmeasure  from simplant.humidity order by dMeasure desc limit 1) as hum on hum.idsensor = sen.idsensor
-				left join 	(select idsensor, nmeasure  from simplant.light order by dMeasure desc limit 1) as light on light.idsensor = sen.idsensor';
+				left join 	(select idsensor, nTemperature  from simplant.temperature order by dMeasure desc limit 1) as temp on temp.idsensor = env.idenvironment
+				left join 	(select idsensor, nflow  from simplant.airflow order by dMeasure desc limit 1) as flow on flow.idsensor = env.idenvironment
+				left join 	(select idsensor, nmeasure  from simplant.humidity order by dMeasure desc limit 1) as hum on hum.idsensor = env.idenvironment
+				left join 	(select idsensor, nmeasure  from simplant.light order by dMeasure desc limit 1) as light on light.idsensor = env.idenvironment
+where env.idenvironment = 1';
 	/* ============================================================================================== */
 	
 	/* ============= Environment ============== */
